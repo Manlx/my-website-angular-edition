@@ -15,19 +15,13 @@ type PastImageData = {
 })
 export class RandomImageFetcher{
 
-  RightMainImage = ''
-  RightMainImageBackUp = ''
-
-  LeftMainImage = ''
-  LeftMainImageBackUp = ''
-
-  PastLeftImages: PastImageData[] = []
-
-  PastRightImages: PastImageData[] = []
+  MainImage = ''
+  MainImageBackUp = ''
+  PastImages: PastImageData[] = []
 
   async FetchNewImage(){
 
-    const newImageData = await fetch('https://picsum.photos/640/360')
+    const newImageData = await fetch('https://picsum.photos/900/500')
 
     if (!newImageData.ok){
 
@@ -43,7 +37,7 @@ export class RandomImageFetcher{
     return`url(${imageUrlObject})`
   }
 
-  async FetchRightImage(){
+  async FetchImage(){
 
     const newImage = await this.FetchNewImage()
 
@@ -51,63 +45,31 @@ export class RandomImageFetcher{
 
     if (!!newImage){
 
-      if (!!this.RightMainImage){
+      if (!!this.MainImageBackUp){
 
-        this.PastRightImages.push({    
+        this.PastImages.push({    
           isMainImage: false,    
-          imageData: this.RightMainImage,
+          imageData: this.MainImageBackUp,
           onClick() {
 
             if (this.isMainImage){
 
-              self.RightMainImage = self.RightMainImageBackUp
+              self.MainImage = self.MainImageBackUp
+              console.warn('Current image')
             } else {
 
-              self.RightMainImage = this.imageData;
+              self.MainImage = this.imageData;
+              console.warn('Past  Image')
             }
 
-            this.isMainImage != this.isMainImage
+            this.isMainImage = !this.isMainImage
           }
         })
       }
   
-      this.RightMainImage = newImage;
+      this.MainImage = newImage;
 
-      this.RightMainImageBackUp = newImage;
-    }
-  }
-
-  async FetchLeftImage(){
-
-    const newImage = await this.FetchNewImage()
-
-    const self = this;
-
-    if (!!newImage){
-
-      if (!!this.LeftMainImage) {
-
-        this.PastLeftImages.push({    
-          isMainImage: false,    
-          imageData: this.LeftMainImage,
-          onClick() {
-
-            if (this.isMainImage){
-
-              self.LeftMainImage = self.LeftMainImageBackUp
-            } else {
-
-              self.LeftMainImage = this.imageData;
-            }
-
-            this.isMainImage != this.isMainImage
-          }
-        })
-      }
-  
-      this.LeftMainImage = newImage;
-      
-      this.LeftMainImageBackUp = newImage;
+      this.MainImageBackUp = newImage;
     }
   }
 }

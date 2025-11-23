@@ -30,13 +30,13 @@ button{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 500px;
+  min-height: 700px;
   gap: 1rem;
 }
 
 .MainImage{
   aspect-ratio: 16/9;
-  width: 500px;
+  width: 900px;
   background-color: red;
   border-radius: 1rem;
 
@@ -59,8 +59,8 @@ button{
   align-items: center;
 
   border-radius: 1rem;
-  gap: 1rem;
-  padding: 0 1rem;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
 
   width: 100%;
   height: 100%;
@@ -74,7 +74,7 @@ button{
 .PastImage{
   display: flex;
   background-color: lime;
-  height: 80%;
+  height: 90%;
   aspect-ratio: 16/9;
 
   background-position: center;
