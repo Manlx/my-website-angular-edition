@@ -1,0 +1,53 @@
+<div class="RandomImageFetcherBody">
+  <div class="ImageHolders">
+
+    <div class="ImageSide">
+      
+      <div 
+        (click)="this.FetchLeftImage()"
+        class="MainImage"
+        [ngStyle]="{
+          'background-image': this.LeftMainImage,
+          'background-color': !!this.LeftMainImage ? 'green' : 'cyan'
+        }">
+
+      </div>
+      <div class="PastImageContainer">
+        @for (pastImage of this.PastLeftImages; track pastImage.imageData){
+          <div 
+            (click)="pastImage.onClick()"
+            [ngStyle]="{
+              'background-image': pastImage.imageData
+            }"
+            class="PastImage" >
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="ImageSide">
+
+      <div 
+        (click)="this.FetchRightImage()"
+        class="MainImage" 
+        [ngStyle]="{
+          'background-image': this.RightMainImage,
+          'background-color': !!this.RightMainImage ? 'green' : 'cyan'
+        }">
+
+      </div>
+      <div class="PastImageContainer">
+        @for (pastImage of this.PastRightImages; track pastImage.imageData){
+          <div 
+            (click)="pastImage.onClick()"
+            [ngStyle]="{
+              'background-image': pastImage.imageData
+            }"
+            class="PastImage" >
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+</div>

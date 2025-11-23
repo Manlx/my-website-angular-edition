@@ -1,0 +1,62 @@
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #454545;
+
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 1rem;
+  width: 75%;
+  transition: 1s;
+  overflow: hidden;
+  
+  border-radius: 2rem;
+}
+
+.globalParent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  padding: 1rem;
+}
+
+.navItem {
+  transition-property: width;
+  transition-delay: 500ms;
+  transition-duration: 500ms;
+  width: 11rem;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 2.5rem;
+  text-decoration: none;
+}
+
+.collapsedNav {
+  width: 5rem;
+  height: 4.5rem;
+}
+
+.collapsedNavItems {
+  width: 0rem;
+  transition-delay: 0ms !important;
+  transition-duration: 250ms !important;
+}
+
+a{
+  font-size: 2rem;
+}
+
+button{
+  background-color: #454545;
+  padding: 1rem;
+  border-radius: 1rem;
+  border-style: none;
+}
